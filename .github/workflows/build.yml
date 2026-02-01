@@ -24,6 +24,13 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
 
+      - name: Install Android 36 Platform
+        run: sdkmanager "platforms;android-36"
+
+      - name: Replace android.jar with patched version
+        run: |
+          curl -L -o $ANDROID_HOME/platforms/android-36/android.jar https://github.com/Reginer/aosp-android-jar/raw/main/android-34/android.jar
+
       - name: Accept Android SDK Licenses
         run: |
           yes | sdkmanager --licenses || true
