@@ -38,6 +38,7 @@ android {
 }
 
 dependencies {
+    compileOnly(project(":stub"))
     implementation(libs.shizuku.provider)
     implementation(libs.shizuku.api)
     implementation(libs.hiddenapibypass)
